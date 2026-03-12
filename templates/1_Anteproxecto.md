@@ -17,8 +17,10 @@ O proxecto consiste nunha aplicación web para a xestión de citas médicas que,
 ## 2- Contextualización
 
 Na actualidade existen numerosas aplicacións e portais web que permiten pedir cita co médico de xeito online, tanto en sistemas públicos de saúde como en aseguradoras privadas, facilitando a reserva de hora, a consulta de dispoñibilidade e o recordatorio da cita. Porén, a maioría destas solucións céntranse en programar e recordar a cita, pero non teñen en conta un problema moi habitual para as persoas usuarias: os atrasos acumulados nas consultas, que provocan longas esperas innecesarias. Moitas clínicas e centros sanitarios están a incorporar recordatorios por SMS ou notificacións para reducir as ausencias e mellorar o fluxo de pacientes, mais aínda é pouco frecuente atopar ferramentas que estimen de forma explícita o tempo de espera restante ou o atraso previsto en cada momento.
+
 <br>
 O propósito principal da aplicación é mellorar a experiencia do paciente reducindo o tempo perdido en sala de espera, ofrecendo información máis realista sobre cando será atendido. Para iso, a app mostrará a hora oficial da cita e a hora estimada de atención, baseada no número de pacientes pendentes, nos tempos medios de consulta e noutros factores (por exemplo, atrasos acumulados ao longo da tarde). Isto permite que o paciente poida saír máis tarde da casa, aproveitar mellor o seu tempo ou, no caso de grandes atrasos, decidir reprogramar a cita. A nivel de obxectivos, búscase: reducir os tempos de espera presenciais, mellorar a comunicación entre centro e paciente, ofrecer máis transparencia na xestión das axendas médicas e facilitar a organización diaria das persoas usuarias.
+
 <br>
 Desde o punto de vista de negocio, unha ferramenta deste tipo pode resultar interesante para clínicas privadas, centros médicos especializados e incluso para sistemas públicos que queiran mellorar a satisfacción dos pacientes e optimizar o uso dos recursos. Xa existen solucións comerciais de software de programación de citas que permiten ver dispoñibilidade en tempo real e envían recordatorios automatizados para reducir ausencias, polo que unha aplicación centrada especificamente na estimación de atrasos podería integrarse como módulo adicional ou diferenciarse ofrecendo métricas de tempo de espera e modelos sinxelos de predición. Isto abre a porta a comercializar o produto como servizo (modelo SaaS) para centros sanitarios que desexen mellorar a súa imaxe e eficiencia, pagando unha cota mensual por profesional ou por centro. Ademáis podería implementarse en outros contextos como unha cita na ITV ou nunha peluquería.
 
@@ -99,22 +101,23 @@ gantt
     Entrega :done, a1, 2026-03-11, 7d
 
     section Empresa
-    Empresa :done, a2, 2026-03-18, 7d
+    Empresa :done, a2, 2026-03-16, 7d
 
     section Análise
-    Análise :done, a3, 2026-03-25, 7d
+    Análise :done, a3, 2026-03-23, 7d
 
     section Deseño
     Deseño :a4, 2026-04-08, 7d
 
     section Codificación
-    Impl. e probas :active, a5, 2026-04-20, 21d
+    Entrega 1 :active, a5, 2026-04-16, 13d
+    Entrega 2 :active, a5, 2026-04-29, 26d
 
     section Implantación
-    Despregamento :a6, 2026-05-15, 7d
+    Despregamento :a6, 2026-05-28, 3d
 
     section Entrega final
-    Defensa :crit, a7, 2026-06-15, 1d
+    Defensa :crit, a7, 2026-06-8, 1d
 
 ```
 
