@@ -61,25 +61,27 @@ A alternativa que se consolida como máis viable para este proxecto é A1: desen
 Para desenvolver a aplicación proponse a seguinte lista de requirimentos técnicos:
 
 - **Infraestrutura:**
-   - Dominio web básico para acceso á aplicación (pode comezar cun subdominio do propio hosting).
-   - Servidor de hosting compartido con soporte para PHP 8.x e base de datos MySQL/MariaDB.
-   - Servidor de base de datos para almacenar usuarios, médicos, citas, tempos de atención, atrasos históricos, etc.
-   - Espazo de almacenamento suficiente para a base de datos e posibles rexistros de actividade (logs).
-   - Posibilidade de configurar tarefas programadas (cron jobs) para actualizar periodicamente estatísticas ou enviar notificacións.
+   - **Hosting**: **Hostinger - Plan Premium**
+  - **Memoria RAM**: 2 GB
+  - **CPU**: 1 núcleo dedicado (100% CPU)
+  - **Espazo en disco**: 20 GB SSD NVMe
+  - **Tráfico mensual**: Ilimitado
+  - **Bases de datos MySQL**: 800 (máx. 2 GB por base de datos)
+  - **Cuentas de correo**: Ilimitadas
+  - **PHP**: Versións 7.4 ata 8.3
+  - **Certificado SSL**: Gratuito (Let's Encrypt)
+  - **Custo**: ~3,99 €/mes (primeiro ano), renovación ~7,99 €/mes
+  - **Dominio**: medtime.es (10-15 €/ano)
 
 - **Backend:**
-   - Linguaxe de programación: PHP (programación estruturada e orientación a obxectos).
-   - Patrón de deseño: MVC dende cero (separando modelos, controladores e vistas).
-   - Base de datos relacional: MySQL ou MariaDB para xestionar as táboas de usuarios, profesionais sanitarios, citas, estados das citas e rexistros de tempos de consulta.
-   - Uso de librerías ou compoñentes adicionais cando sexa necesario (por exemplo, PHPMailer ou similar para envío de correos electrónicos de aviso).
-   - API interna sinxela (endpoints en PHP) para devolver datos en formato JSON, permitindo ao frontend actualizar en tempo real ou baixo demanda a estimación de atrasos.
-   - Implementación de autenticación básica para usuarios (pacientes) e panel para administración ou persoal da clínica.
+   - **Linguaxe**: PHP 8.2
+   - **Patrón**: MVC (custom)
+   - **Base de datos**: MySQL 8.0
 
 - **Frontend:**
-   - HTML5 para a estrutura das páxinas (formulario de login, vista de agenda, detalle da cita, etc.).
-   - CSS3 (posiblemente con Flexbox e Grid) para deseñar unha interface limpa, adaptada a móbiles e tablets.
-   - JavaScript nativo para interaccións dinámicas: consulta periódica da estimación de atraso, actualización da hora recomendada de chegada, avisos ao usuario na interface.
-   - Uso opcional dunha pequena librería de UI (por exemplo, un framework CSS lixeiro) se fose necesario para acelerar o deseño, sen introducir demasiada complexidade técnica.
+   - **HTML5**: Estrutura de páxinas
+   - **CSS3**: Responsive
+   - **JavaScript**: Interactuacións dinámicas
 
 - **Outros servizos e requisitos:**
    - Sistema de notificacións por correo electrónico para informar de cambios importantes na cita ou en atrasos significativos.

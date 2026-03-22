@@ -109,9 +109,9 @@ A proposta de valor de **MedTime** céntrase nun elemento diferencial claro que 
 
 ## 1.6- Forma xurídica
 
-A forma xurídica elixida para o inicio da actividade é a de **traballador autónomo**.
+A forma xurídica elixida é **Sociedade Limitada (SL)**.
 
-Esta elección xustifícase porque o proxecto parte dun único desenvolvedor, con ingresos iniciais incertos e reducidos, polo que a figura do autónomo ofrece **menor carga administrativa**, **trámites máis sinxelos** e **sen necesidade de capital mínimo** nin gastos notariais, o que permite comezar a actividade rapidamente e con baixo risco. Ademais, nos primeiros anos de actividade a **cota de autónomo bonificada** (tarifa plana) reduce significativamente os custos fixos. No caso de que o negocio crezca e os ingresos así o xustifiquen, valoraríase a conversión a **Sociedade Limitada Unipersonal (SLU)** para obter vantaxes fiscais polo Imposto de Sociedades (25%) e limitar a responsabilidade patrimonial persoal.
+Esta elección xustifícase porque o proxecto céntrase no **sector sanitario**, que está suxeito a normativas específicas de protección de datos (LOPD, RGPD) e responsabilidade civil que recomendan limitar a responsabilidade persoal do administrador. A SL ofrece **limitación da responsabilidade ao capital social**, protección xurídica adicional e maior credibilidade ante clientes do sector saúde. Ademais, permite deducións fiscais e é compatible con futuras ampliacións de capital ou entrada de socios. O custo de constitución (~300-500 € con notario e rexistro) é asumible e compensado pola seguridade xurídica que proporciona.
 
 
 ## 1.7- Investimentos
@@ -135,18 +135,20 @@ Esta elección xustifícase porque o proxecto parte dun único desenvolvedor, co
 
 | **Concepto** | **Importe anual** |
 |---|---|
-| Hosting + dominio | ~70 €/ano |
-| Cota de autónomo (tarifa plana primeiro ano) | ~960 €/ano (80 €/mes) |
-| Seguro de responsabilidade civil (estimado) | ~150 €/ano |
-| **Total custos fixos** | **~1.180 €/ano** |
+| Hosting + dominio | 120 € |
+| Custo contable/xurídico (SL) | 600 € |
+| Seguro RC profesional | 250 € |
+| **Salario do administrador** (SMI 2026) | 15.876 € |
+| **Custos sociais (cotización SL + autónomos societarios)** | 4.500 € |
+| **Total custos fixos** | **21.346 €** |
 
 **Custos variables (en función do número de clientes):**
 
 | **Concepto** | **Importe estimado** |
 |---|---|
-| Servizo de SMS/notificacións (se se activa) | ~0,05 €/SMS enviado |
-| Hosting de maior capacidade ao crecer | +20–50 €/mes ao superar 10 clientes activos |
-| Xestión fiscal e contable (asesoría) | ~50 €/mes (~600 €/ano) |
+| Notificacións SMS | 0,05 €/SMS |
+| Hosting adicional | +50 €/mes (escalado) |
+| Imposto de Sociedades (25% sobre beneficios) | Variable por beneficios |
 
 ### 1.7.2- Ingresos
 
@@ -160,11 +162,11 @@ O modelo de negocio proposto é **SaaS (Software as a Service)**, cunha cota men
 
 **Previsión de ventas (escenario conservador):**
 
-| **Ano** | **Clientes activos** | **Ingreso mensual medio** | **Ingresos anuais** |
+| **Ano** | **Clientes** | **Ingreso/mes** | **Ingresos anuais** |
 |---|---|---|---|
-| Ano 1 | 3 clientes | 59 €/cliente | ~2.124 € |
-| Ano 2 | 10 clientes | 59 €/cliente | ~7.080 € |
-| Ano 3 | 25 clientes | 65 €/cliente | ~19.500 € |x`
+| Ano 1 | 5 clientes | 59 €/cliente | **3.540 €** |
+| Ano 2 | 15 clientes | 65 €/cliente | **11.700 €** |
+| Ano 3 | 35 clientes | 70 €/cliente | **29.400 €** |
 
 ## 1.8- Viabilidade
 
@@ -183,21 +185,19 @@ Contrastando custos e ingresos:
 
 | **Concepto** | **Ano 1** | **Ano 2** | **Ano 3** |
 |---|---|---|---|
-| **Ingresos** | 2.124 € | 7.080 € | 19.500 € |
-| **Custos fixos** | 1.180 € | 1.780 € | 2.380 € |
-| **Resultado bruto** | **+944 €** | **+5.300 €** | **+17.120 €** |
+| **Ingresos** | 3.540 € | 11.700 € | 29.400 € |
+| **Custos fixos** (incl. salario) | 21.346 € | 22.226 € | 23.626 € |
+| **Resultado bruto** | **-17.806 €** | **-10.526 €** | **+5.774 €** |
 
-O proxecto alcanza o **punto de equilibrio** a partir de **tan só 3 clientes con plan Estándar** (3 × 59 €/mes = 177 €/mes > ~98 €/mes de custos fixos). Isto fai que a barreira de entrada para a rendibilidade sexa moi baixa.
+**Punto de equilibrio**: 30 clientes Estándar (30 × 59 € × 12 = 21.240 €/ano). 
 
-No primeiro ano, os ingresos son modestos (etapa de captación e validación do produto), pero os custos son igualmente baixos grazas á estrutura lixeira do negocio (traballo en remoto, sen local físico, infraestrutura cloud económica).
+**Estratexias para cubrir déficit inicial**:
+1. **Subvencións**: Kit Digital (ata 12.000 € para dixitalización), IGAPE Startup (ata 50.000 €).
+2. **Capital inicial persoal**: 10.000-15.000 € para cubrir os primeiros 12 meses.
+3. **Crecemento agresivo**: obxectivo realista de 10 clientes no Ano 1 mediante contacto directo con clínicas locais.
 
 ### 1.8.3- Conclusión
 
-O proxecto é **economicamente e tecnicamente viable**:
-
-- Os **beneficios superan os custos** a partir dun número reducido de clientes (mínimo 3), o que reduce considerablemente o risco empresarial.
-- A estrutura de custos é moi lixeira ao tratarse dun produto 100% dixital sen necesidade de local físico nin empregados adicionais no inicio.
-- No caso de que os ingresos do primeiro ano non cubrisen a totalidade dos custos, a diferenza é asumible polo emprendedor sen necesidade de financiamento externo, aínda que tamén existirían opcións de **subvencións públicas** para emprendedores novos e proxectos de dixitalización sanitaria (programas IGAPE en Galicia, convocatorias Kit Digital, etc.).
-- O mercado obxectivo ten un tamaño suficiente (miles de clínicas privadas en España) e a proposta de valor diferencial da estimación de atrasos cubre unha necesidade real non atendida polos competidores actuais.
+O proxecto mantén a **viabilidade técnica** e ten **viabilidade económica medio-plazo** (beneficios a partir do Ano 3). O déficit inicial dos primeiros anos é **cubrible mediante subvencións públicas** (Kit Digital, IGAPE) e capital persoal mínimo, sendo este un modelo habitual en startups de software SaaS. A SL é a estrutura xurídica idónea para o sector sanitario pola protección legal que ofrece. O mercado (26% poboación con seguro privado, 25.000+ clínicas) xustifica a inversión inicial.
 
 [**<-Anterior**](../../README.md)
