@@ -13,19 +13,35 @@ spl_autoload_register(function ($clase) {
     }
 });
 
-$controllerName = $_REQUEST['controller'] ?? 'ErrorController';
-$action = $_REQUEST['action'] ?? 'pageNotFound';
+// Whitelist de controladores permitidos
+$allowedControllers = [
+    'AuthController',
+    'MainController',
+    'PacienteController',
+    'ProfesionalController',
+    'AdminController',
+    'ErrorController',
+];
+
+$controllerName = $_GET['controller'] ?? 'AuthController';
+$action         = $_GET['action']     ?? 'showLogin';
+
+if (!in_array($controllerName, $allowedControllers, true)) {
+    $controllerName = 'ErrorController';
+    $action         = 'pageNotFound';
+}
+
 $controllerClass = "app\\controllers\\$controllerName";
 
 try {
     if (!class_exists($controllerClass)) {
-        throw new Exception("No existe el controlador: " . $controllerClass);
+        throw new \Exception("No existe el controlador: " . $controllerClass);
     }
 
     $objeto = new $controllerClass();
 
     if (!method_exists($objeto, $action)) {
-        throw new Exception("No existe la acción: " . $action . " en " . $controllerClass);
+        throw new \Exception("No existe la acción: " . $action . " en " . $controllerClass);
     }
 
     $objeto->$action();

@@ -4,65 +4,66 @@ namespace app\models\vo;
 
 class UsuarioVo
 {
-    public ?int $id_usuario;
-    public ?string $nome;
-    public ?string $apelidos;
+    public ?int $idUsuario;
+    public ?string $nombre;
+    public ?string $apellidos;
     public ?string $email;
     public ?string $telefono;
-    public ?string $contrasinal_hash;
+    public ?string $contrasenaHash;
     public ?string $rol;
-    public ?string $data_alta;
+    public ?string $fechaAlta;
     public ?bool $activo;
 
     public function __construct(
-        ?string $nome = null,
-        ?string $apelidos = null,
+        ?int $idUsuario = null,
+        ?string $nombre = null,
+        ?string $apellidos = null,
         ?string $email = null,
         ?string $telefono = null,
-        ?string $contrasinal_hash = null,
+        ?string $contrasenaHash = null,
         ?string $rol = null,
-        ?string $data_alta = null,
+        ?string $fechaAlta = null,
         ?bool $activo = null
     ) {
-        $this->id_usuario = null;
-        $this->nome = $nome;
-        $this->apelidos = $apelidos;
+        $this->idUsuario = $idUsuario;
+        $this->nombre = $nombre;
+        $this->apellidos = $apellidos;
         $this->email = $email;
         $this->telefono = $telefono;
-        $this->contrasinal_hash = $contrasinal_hash;
+        $this->contrasenaHash = $contrasenaHash;
         $this->rol = $rol;
-        $this->data_alta = $data_alta;
+        $this->fechaAlta = $fechaAlta;
         $this->activo = $activo;
     }
 
     public function getIdUsuario(): ?int
     {
-        return $this->id_usuario;
+        return $this->idUsuario;
     }
 
-    public function setIdUsuario(?int $id_usuario): void
+    public function setIdUsuario(?int $idUsuario): void
     {
-        $this->id_usuario = $id_usuario;
+        $this->idUsuario = $idUsuario;
     }
 
-    public function getNome(): ?string
+    public function getNombre(): ?string
     {
-        return $this->nome;
+        return $this->nombre;
     }
 
-    public function setNome(?string $nome): void
+    public function setNombre(?string $nombre): void
     {
-        $this->nome = $nome;
+        $this->nombre = $nombre;
     }
 
-    public function getApelidos(): ?string
+    public function getApellidos(): ?string
     {
-        return $this->apelidos;
+        return $this->apellidos;
     }
 
-    public function setApelidos(?string $apelidos): void
+    public function setApellidos(?string $apellidos): void
     {
-        $this->apelidos = $apelidos;
+        $this->apellidos = $apellidos;
     }
 
     public function getEmail(): ?string
@@ -85,14 +86,14 @@ class UsuarioVo
         $this->telefono = $telefono;
     }
 
-    public function getContrasinalHash(): ?string
+    public function getContrasenaHash(): ?string
     {
-        return $this->contrasinal_hash;
+        return $this->contrasenaHash;
     }
 
-    public function setContrasinalHash(?string $contrasinal_hash): void
+    public function setContrasenaHash(?string $contrasenaHash): void
     {
-        $this->contrasinal_hash = $contrasinal_hash;
+        $this->contrasenaHash = $contrasenaHash;
     }
 
     public function getRol(): ?string
@@ -105,14 +106,14 @@ class UsuarioVo
         $this->rol = $rol;
     }
 
-    public function getDataAlta(): ?string
+    public function getFechaAlta(): ?string
     {
-        return $this->data_alta;
+        return $this->fechaAlta;
     }
 
-    public function setDataAlta(?string $data_alta): void
+    public function setFechaAlta(?string $fechaAlta): void
     {
-        $this->data_alta = $data_alta;
+        $this->fechaAlta = $fechaAlta;
     }
 
     public function getActivo(): ?bool

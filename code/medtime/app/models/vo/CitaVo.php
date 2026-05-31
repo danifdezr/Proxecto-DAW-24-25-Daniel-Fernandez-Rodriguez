@@ -10,8 +10,8 @@ class CitaVo
     public ?string $fechaCita;
     public ?string $horaCita;
     public ?string $estado;
-    public ?string $motivo;
-    public ?string $horaEstimada;
+    public ?string $observaciones;
+    public ?string $fechaHoraEstimada;
 
     public function __construct(
         ?int $idCita = null,
@@ -20,8 +20,8 @@ class CitaVo
         ?string $fechaCita = null,
         ?string $horaCita = null,
         ?string $estado = null,
-        ?string $motivo = null,
-        ?string $horaEstimada = null
+        ?string $observaciones = null,
+        ?string $fechaHoraEstimada = null
     ) {
         $this->idCita = $idCita;
         $this->idPaciente = $idPaciente;
@@ -29,8 +29,8 @@ class CitaVo
         $this->fechaCita = $fechaCita;
         $this->horaCita = $horaCita;
         $this->estado = $estado;
-        $this->motivo = $motivo;
-        $this->horaEstimada = $horaEstimada;
+        $this->observaciones = $observaciones;
+        $this->fechaHoraEstimada = $fechaHoraEstimada;
     }
 
     public function getIdCita(): ?int
@@ -93,23 +93,23 @@ class CitaVo
         $this->estado = $estado;
     }
 
-    public function getMotivo(): ?string
+    public function getObservaciones(): ?string
     {
-        return $this->motivo;
+        return $this->observaciones;
     }
 
-    public function setMotivo(?string $motivo): void
+    public function setObservaciones(?string $observaciones): void
     {
-        $this->motivo = $motivo;
+        $this->observaciones = $observaciones;
     }
 
-    public function getHoraEstimada(): ?string
+    public function getFechaHoraEstimada(): ?string
     {
-        return $this->horaEstimada;
+        return $this->fechaHoraEstimada;
     }
 
-    public function setHoraEstimada(?string $horaEstimada): void
+    public function setFechaHoraEstimada(?string $fechaHoraEstimada): void
     {
-        $this->horaEstimada = $horaEstimada;
+        $this->fechaHoraEstimada = $fechaHoraEstimada;
     }
 }

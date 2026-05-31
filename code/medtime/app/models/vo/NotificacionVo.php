@@ -6,23 +6,23 @@ class NotificacionVo
 {
     public ?int $idNotificacion;
     public ?int $idCita;
-    public ?string $mensaje;
     public ?string $tipo;
+    public ?string $mensaje;
     public ?string $fechaEnvio;
     public ?string $estado;
 
     public function __construct(
         ?int $idNotificacion = null,
         ?int $idCita = null,
-        ?string $mensaje = null,
         ?string $tipo = null,
+        ?string $mensaje = null,
         ?string $fechaEnvio = null,
         ?string $estado = null
     ) {
         $this->idNotificacion = $idNotificacion;
         $this->idCita = $idCita;
-        $this->mensaje = $mensaje;
         $this->tipo = $tipo;
+        $this->mensaje = $mensaje;
         $this->fechaEnvio = $fechaEnvio;
         $this->estado = $estado;
     }
@@ -47,16 +47,6 @@ class NotificacionVo
         $this->idCita = $idCita;
     }
 
-    public function getMensaje(): ?string
-    {
-        return $this->mensaje;
-    }
-
-    public function setMensaje(?string $mensaje): void
-    {
-        $this->mensaje = $mensaje;
-    }
-
     public function getTipo(): ?string
     {
         return $this->tipo;
@@ -65,6 +55,16 @@ class NotificacionVo
     public function setTipo(?string $tipo): void
     {
         $this->tipo = $tipo;
+    }
+
+    public function getMensaje(): ?string
+    {
+        return $this->mensaje;
+    }
+
+    public function setMensaje(?string $mensaje): void
+    {
+        $this->mensaje = $mensaje;
     }
 
     public function getFechaEnvio(): ?string
