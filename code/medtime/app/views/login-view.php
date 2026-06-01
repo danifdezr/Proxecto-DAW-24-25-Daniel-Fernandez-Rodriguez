@@ -83,5 +83,9 @@ $success = $data['success'] ?? null;
       </p>
     </div>
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
 </body>
 </html>

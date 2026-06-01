@@ -184,6 +184,11 @@ $meses = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oc
     </div>
 
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
+
   <script src="/assets/js/modal.js?v=<?= filemtime('/var/www/html/public/assets/js/modal.js') ?>"></script>
   <script src="/assets/js/paciente.js?v=<?= filemtime('/var/www/html/public/assets/js/paciente.js') ?>"></script>
 </body>

@@ -116,5 +116,9 @@ $nombreCompleto = htmlspecialchars($usuario['nombre'] . ' ' . $usuario['apellido
     <?php endif; ?>
 
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
 </body>
 </html>

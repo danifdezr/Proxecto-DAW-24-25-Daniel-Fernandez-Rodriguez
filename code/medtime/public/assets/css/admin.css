@@ -551,6 +551,17 @@ button:focus-visible {
   font-size: .95rem;
 }
 
+/* Footer */
+.app-footer {
+  position: sticky;
+  top: 100vh;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+}
+
 /* Responsive */
 @media (max-width: 760px) {
   .header-inner {

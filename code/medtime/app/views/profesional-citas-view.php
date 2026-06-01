@@ -144,5 +144,9 @@ function formatFecha(string $fecha, array $meses): string {
     </div>
 
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
 </body>
 </html>

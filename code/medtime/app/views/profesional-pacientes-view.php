@@ -126,5 +126,9 @@ function calcularEdad(string $fechaNac): int {
     <?php endif; ?>
 
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
 </body>
 </html>

@@ -209,5 +209,9 @@ if ($fechaSeleccionada) {
 
     </div>
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
 </body>
 </html>

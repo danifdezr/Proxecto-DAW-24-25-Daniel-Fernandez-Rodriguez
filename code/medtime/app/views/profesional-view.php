@@ -251,6 +251,11 @@ $fechaHoyTexto = $diasSemana[(int)$hoy->format('w')] . ', ' . $hoy->format('j') 
 
     </div>
   </main>
+
+  <footer class="app-footer">
+    <p>&copy; <?= date('Y') ?> Daniel Fernández Rodríguez · MedTime</p>
+  </footer>
+
   <script src="/assets/js/modal.js?v=<?= filemtime('/var/www/html/public/assets/js/modal.js') ?>"></script>
   <script src="/assets/js/profesional.js?v=<?= filemtime('/var/www/html/public/assets/js/profesional.js') ?>"></script>
 </body>
