@@ -126,4 +126,4 @@ flowchart LR
 
 ![Prototipo](../doc/img/Prototipo_MedTime.png)
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

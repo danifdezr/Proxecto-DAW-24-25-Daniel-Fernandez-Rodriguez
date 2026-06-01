@@ -137,4 +137,4 @@ As probas realizáronse de forma **manual e funcional**, percorrendo os fluxos c
 - **Zona horaria**: as horas calculadas non coincidían coa hora local. Fixouse `date_default_timezone_set('Europe/Madrid')` en `globals.php` e `TZ: Europe/Madrid` no contedor da base de datos.
 - **Datos de proba caducados**: as citas tiñan datas fixas e quedaban obsoletas. Reescribíronse os *inserts* con **datas dinámicas** relativas a `CURDATE()`, de xeito que sempre haxa citas "para hoxe".
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

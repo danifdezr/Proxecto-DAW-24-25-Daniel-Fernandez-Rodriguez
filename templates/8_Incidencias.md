@@ -39,4 +39,4 @@
 - [ ] Panel de estatísticas (atrasos medios, carga de traballo).
 - [ ] Despregue en produción con HTTPS e variables de entorno.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

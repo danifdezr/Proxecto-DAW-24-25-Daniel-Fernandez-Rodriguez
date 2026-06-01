@@ -76,7 +76,7 @@ Este proxecto nace da motivación de aplicar o desenvolvemento web full-stack a 
 
 ## Licenza
 
-Este proxecto distribúese baixo a **GNU Free Documentation License, versión 1.3**. Consulta o ficheiro [LICENSE](LICENSE) para os detalles completos. Ao tratarse dunha licenza libre, autorízase a derivación e continuación da obra baixo a mesma licenza.
+Este proxecto distribúese baixo a **licenza MIT**. Consulta o ficheiro [LICENSE](LICENSE.md) para os detalles completos. Ao tratarse dunha licenza libre e permisiva, autorízase o uso, copia, modificación e distribución da obra, mantendo o aviso de copyright e da licenza.
 
 ## Índice
 

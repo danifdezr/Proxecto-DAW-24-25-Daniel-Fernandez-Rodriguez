@@ -39,4 +39,4 @@
 - [Lei Orgánica 3/2018 (LOPDGDD)](https://www.boe.es/eli/es/lo/2018/12/05/3) — protección de datos e garantía de dereitos dixitais en España.
 - [Lei 41/2002 reguladora da autonomía do paciente](https://www.boe.es/eli/es/l/2002/11/14/41) — documentación clínica e historial do paciente.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

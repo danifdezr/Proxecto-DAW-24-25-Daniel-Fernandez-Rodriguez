@@ -200,4 +200,4 @@ Contrastando custos e ingresos:
 
 O proxecto mantén a **viabilidade técnica** e ten **viabilidade económica medio-plazo** (beneficios a partir do Ano 3). O déficit inicial dos primeiros anos é **cubrible mediante subvencións públicas** (Kit Digital, IGAPE) e capital persoal mínimo, sendo este un modelo habitual en startups de software SaaS. A SL é a estrutura xurídica idónea para o sector sanitario pola protección legal que ofrece. O mercado (26% poboación con seguro privado, 25.000+ clínicas) xustifica a inversión inicial.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

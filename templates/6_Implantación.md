@@ -128,4 +128,4 @@ A aplicación está deseñada para ser **intuitiva**, polo que non require forma
 - **Despregue en produción**: configuración de HTTPS, variables de entorno para as credenciais e adaptación a un provedor na nube.
 - **Aplicación móbil / PWA**: versión instalable para que os pacientes reciban avisos *push* no móbil.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

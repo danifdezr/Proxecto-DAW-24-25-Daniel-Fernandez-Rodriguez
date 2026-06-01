@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editores / IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs e temporais
+*.log
+*.tmp
+
+# Dependencias (por se no futuro se usa Composer)
+/vendor/

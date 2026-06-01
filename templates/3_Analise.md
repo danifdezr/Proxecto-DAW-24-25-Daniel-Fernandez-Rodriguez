@@ -87,4 +87,4 @@ O proxecto **MedTime** cumpre integralmente coa normativa vixente en materia de 
 6. **Multilingüe**: Soporte para portugués e inglés (expansión a Portugal e Latinoamérica).
 7. **Pagos online**: Stripe/PayPal para citas de pago directo.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)
