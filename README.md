@@ -1,7 +1,7 @@
-# Proxecto fin de ciclo
+# MedTime — Xestión intelixente de citas médicas
 
-- [Proxecto fin de ciclo](#proxecto-fin-de-ciclo)
-  - [Taboleiro do proyecto](#taboleiro-do-proyecto)
+- [MedTime — Xestión intelixente de citas médicas](#medtime--xestión-intelixente-de-citas-médicas)
+  - [Taboleiro do proxecto](#taboleiro-do-proxecto)
   - [Descrición](#descrición)
   - [Instalación / Posta en marcha](#instalación--posta-en-marcha)
   - [Uso](#uso)
@@ -11,39 +11,74 @@
   - [Guía de contribución](#guía-de-contribución)
   - [Links](#links)
 
-> *EXPLICACIÓN*: Este mento será a "*páxina de aterrizaxe*" do teu proxecto. Será ou primeiro que vexan vos que se interesen por el. Cúida a sua redacción con todo ou mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN*" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción deste ficheiro con imaxes ou gifs, pero non abuses deles.
+## Taboleiro do proxecto
 
-## Taboleiro do proyecto
-
-> *EXPLICACIÓN:* neste punto indica se o proyecto está en fase de desenrolo ou finalizado.
+**Estado: finalizado** ✅ — Proxecto de Fin de Ciclo do CS de *Desenvolvemento de Aplicacións Web (DAW)*, curso 2024/2025.
 
 ## Descrición
 
-> *EXPLICACIÓN*: Realiza unha breve descrición do proxecto. Non menos de 100 palabras e non máis de 300. Resalta o fundamental *coas túas propias palabras**. Utiliza unha linguaxe correcta, *pero natural**, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
-> Descrición básica das ferramentas/tecnoloxías/linguaxes de programación,... empregados.
+**MedTime** é unha aplicación web para a **xestión de citas nunha clínica** que pon o foco nun problema cotián: a **incerteza nas salas de espera**. Ademais de permitir reservar, consultar e xestionar citas, MedTime calcula e amosa ao paciente unha **hora estimada de atención** que se actualiza segundo o ritmo real da consulta, indicándolle cantas persoas ten diante e se hai alguén sendo atendido nese momento.
+
+A aplicación organiza tres perfís de usuario:
+
+- **Paciente**: rexístrase, reserva citas escollendo profesional, día e hora dispoñible, consulta o seu historial e a hora estimada, e pode confirmar, reprogramar ou cancelar.
+- **Profesional**: xestiona a súa axenda diaria, chama ao paciente e finaliza a consulta; ao facelo, MedTime **recalcula automaticamente os tempos de espera** do resto da cola.
+- **Administrador**: xestiona todos os usuarios do sistema dende un panel dinámico.
+
+Está desenvolvida en **PHP 8.2** seguindo o patrón **Modelo-Vista-Controlador (MVC)** sen frameworks externos, con **MariaDB** como base de datos, **HTML5, CSS3 e JavaScript** no frontend, e todo o entorno **contedorizado con Docker** para que poña en marcha cun único comando.
 
 ## Instalación / Posta en marcha
 
-> *EXPLICACIÓN*: Neste apartado describe con toda precisión e a poder ser coa maior simplicidade/facilidade posible, como poñer en marcha a túa aplicación para probala (nun ambiente local). Valorarase moi positivamente que este proceso sexa o máis fácil posible, cunha simple instrución (p. e. un script de instalación, descarga e posta en marcha dun contedor,...).
->
+A aplicación está totalmente **contedorizada con Docker**, polo que non é necesario instalar PHP, Apache nin a base de datos no equipo.
+
+**Requisitos previos**
+
+- [Docker](https://www.docker.com/) e Docker Compose.
+- [Git](https://git-scm.com/).
+- En **Windows**, Docker Desktop necesita **WSL 2**. Se non o tes, executa nunha terminal de administrador `wsl --install`, reinicia e arranca Docker Desktop.
+
+**Posta en marcha (un só comando)**
+
+```bash
+git clone <url-do-repositorio>
+cd Proxecto-DAW-24-25-Daniel-Fernandez-Rodriguez/code/medtime
+docker compose up -d --build
+```
+
+Cando rematen de levantarse os contedores, abre no navegador:
+
+- Aplicación: <http://localhost:8000>
+- phpMyAdmin (administración da BD): <http://localhost:8888>
+
+Os scripts de `sql/` execútanse automaticamente a primeira vez, creando o esquema e uns **datos de proba**. O contrasinal de todas as contas de demostración é `Medtime123`:
+
+| Rol           | Email                      |
+| ------------- | -------------------------- |
+| Paciente      | `daniel@medtime.com`       |
+| Profesional   | `laura.gomez@medtime.com`  |
+| Administrador | `admin@medtime.com`        |
+
+> Para empezar de cero (borrando os datos): `docker compose down -v && docker compose up -d --build`.
 
 ## Uso
 
-> *EXPLICACIÓN*: É este apartado describe brevemente como se usará a aplicación Web do proxecto. Describe o uso da interface web *só o uso** (a modo de sumario) *dos aspectos máis relevantes do seu funcionamento** (máxima brevidade, coma se fose un anuncio reclamo ou comercial).
->
+- **Como paciente**: inicia sesión, pulsa en *Nova cita*, busca o profesional, elixe un día no calendario e unha hora libre. No teu panel verás a próxima cita e, o mesmo día, **a hora estimada actualizada** e cantos pacientes tes diante. Podes confirmar a asistencia, reprogramar ou cancelar.
+- **Como profesional**: no panel tes a axenda do día. Pulsa *Chamar paciente* para iniciar a consulta e *Finalizar* ao rematar; os tempos estimados do resto de citas axústanse sós.
+- **Como administrador**: dende o panel podes crear, editar e eliminar usuarios (pacientes, profesionais e administradores) sen recargar a páxina.
 
 ## Sobre o autor
 
-> *EXPLICACIÓN*: Realiza unha breve descrición de quen es (perfil profesional), os teus puntos fortes, ou tecnoloxías que máis dominas... a motivación do proxecto, tendo sobre todo en conta un nicho de mercado sen explotar.. *Non máis de 200 palabras**. Indica a forma fiable de contactar contigo durante o proceso de creación do proxecto.
+**Daniel Fernández Rodríguez**, estudante do Ciclo Superior de *Desenvolvemento de Aplicacións Web (DAW)*.
+
+Este proxecto nace da motivación de aplicar o desenvolvemento web full-stack a un problema real e pouco atendido —a xestión da espera nas consultas médicas—, traballando o backend en PHP, o modelado de datos en SQL e a contedorización con Docker.
+
+- 📧 Contacto: [danifdezrbach@gmail.com](mailto:danifdezrbach@gmail.com)
 
 ## Licenza
 
-> *EXPLICACIÓN*: É requisito INDISPENSABLE o licenciar explicitamente o proxecto software. Recoméndase licenciar con GNU Free mentation License Version 1.3*. Crear un ficheiro `LICENSE` na raiz do repo, co teu ficheiro de licenza. Lembra que se empregas unha licenza de software libre estás a autorizar a derivación da túa obra baixo a mesma licenza que elixas, podendo dar continuidade, p. e. outro alumno, para continuar o teu proxecto noutro curso.
+Este proxecto distribúese baixo a **GNU Free Documentation License, versión 1.3**. Consulta o ficheiro [LICENSE](LICENSE) para os detalles completos. Ao tratarse dunha licenza libre, autorízase a derivación e continuación da obra baixo a mesma licenza.
 
 ## Índice
-
-> *EXPLICACIÓN*: Simplemente indexa ordenadamente todo o tey proxecto.
 
 1. [Anteproyecto](templates/1_Anteproxecto.md)
 2. [Empresa](templates/2_Empresa.md)
@@ -56,9 +91,18 @@
 
 ## Guía de contribución
 
-> EXPLICACIÓN*: Tratándose dun proxecto de software libre, é moi importante que expoñas como se pode contribuír co teu proxecto. Algúns exemplos disto son realizar novas funcionalidades, corrección e/o optimización do código, realización de tests automatizados, novas interfaces de integración, desenvolvemento de plugins etc. Se o máis conciso que poidas.
+As contribucións son benvidas. Para colaborar:
+
+1. Fai un *fork* do repositorio e crea unha rama descritiva (`git checkout -b mellora-notificacions`).
+2. Mantén o estilo do código existente (PHP con patrón MVC, sentencias preparadas e escape da saída).
+3. Proba os cambios no entorno Docker antes de propoñelos.
+4. Abre un *Pull Request* describindo o cambio e o motivo.
+
+Algunhas liñas abertas onde axudar: envío real de notificacións por correo, actualización en tempo real da hora estimada no panel do paciente, horarios configurables por profesional e panel de estatísticas. Consulta [Incidencias e tarefas](templates/8_Incidencias.md).
 
 ## Links
 
-> EXPLICACIÓN*: Ligazóns externas e descipciones destas ligazóns que creas conveniente indicar aquí. Xeralmente xa van estar integrados coa túa mentación, pero se requires realizar unha listaxe deles, leste é o lugar.
->
+- [Documentación PHP](https://www.php.net/manual/es/)
+- [MariaDB](https://mariadb.org/)
+- [Docker](https://docs.docker.com/)
+- [MDN Web Docs](https://developer.mozilla.org/es/)

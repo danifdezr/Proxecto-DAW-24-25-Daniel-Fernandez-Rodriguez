@@ -1,7 +1,7 @@
 const $d = document,
       $contadorEl = $d.getElementById('contador-pendientes')
 
-/* ── Muestra confirmación: modal si está disponible, native confirm como fallback ── */
+/* Muestra confirmación: modal si está disponible, native confirm como fallback */
 function pedirConfirmacion(mensaje, confirmLabel, isDanger, onConfirm) {
     try {
         if (typeof Modal !== 'undefined' && typeof Modal.confirm === 'function') {
@@ -19,7 +19,7 @@ function pedirConfirmacion(mensaje, confirmLabel, isDanger, onConfirm) {
     }
 }
 
-/* ── Interceptar botones con data-confirm ── */
+/* Interceptar botones con data-confirm */
 function initConfirmButtons() {
     $d.querySelectorAll('button[data-confirm]').forEach(function($btn) {
         $btn.addEventListener('click', function(ev) {
@@ -37,7 +37,8 @@ function initConfirmButtons() {
     })
 }
 
-/* ── Modal de detalles de cita ── */
+/* Modal de detalles de cita */
+/* Ver enlace emojis paciente.js */
 function initDetailModals() {
     $d.querySelectorAll('[data-cita-detalle]').forEach(function($el) {
         $el.addEventListener('click', function() {

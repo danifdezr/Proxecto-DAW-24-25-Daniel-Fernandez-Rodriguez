@@ -1,11 +1,12 @@
-const $d = document
-
 const Modal = (function () {
+
+    //Evitar SyntaxError. Modal se carga primero
+    const $d = document
 
     let $overlay = null,
         _keyHandler = null
 
-    /* ── Escape HTML ── */
+    /* Escape HTML */
     function _escape(str) {
         return String(str ?? '')
             .replace(/&/g, '&amp;')
@@ -15,7 +16,7 @@ const Modal = (function () {
             .replace(/'/g, '&#039;')
     }
 
-    /* ── Crea o recupera el overlay ── */
+    /* Crea o recupera el overlay */
     function _getOverlay() {
         if (!$overlay) {
             $overlay = $d.createElement('div')
@@ -30,7 +31,7 @@ const Modal = (function () {
         return $overlay
     }
 
-    /* ── Muestra un modal ── */
+    /* Muestra un modal */
     function _show($modal) {
         const $ov = _getOverlay()
         $ov.appendChild($modal)
@@ -44,7 +45,8 @@ const Modal = (function () {
         if ($focusable) $focusable.focus()
     }
 
-    /* ── Modal de confirmación ── */
+    /* Modal de confirmación (Ver ejemplo Coremain Vinculo Docente)*/
+    /* Enlace directo emoji peligro: https://es.piliapp.com/emoji/list/hazard/ */
     function confirm({ message, confirmLabel = 'Confirmar', cancelLabel = 'Cancelar', danger = false, onConfirm, onCancel = null }) {
         const $modal = $d.createElement('div')
         $modal.className = 'modal modal--sm'
@@ -69,7 +71,7 @@ const Modal = (function () {
         return $modal
     }
 
-    /* ── Modal informativo ── */
+    /* Modal informativo */
     function info({ title, contentHtml }) {
         const $modal = $d.createElement('div')
         $modal.className = 'modal'
@@ -85,7 +87,7 @@ const Modal = (function () {
         return $modal
     }
 
-    /* ── Modal con formulario ── */
+    /* Modal con formulario */
     function form({ title, fields = [], submitLabel = 'Guardar', onSubmit }) {
         const fieldsHtml = fields.reduce((html, f) => {
             const id  = `mf-${f.name}`,
@@ -156,7 +158,7 @@ const Modal = (function () {
         return $modal
     }
 
-    /* ── Cierra un modal ── */
+    /* Cierra un modal */
     function close($modal) {
         if ($modal && $modal.parentNode === $overlay) $overlay.removeChild($modal)
         if ($overlay && !$overlay.querySelector('.modal')) {
@@ -165,7 +167,7 @@ const Modal = (function () {
         }
     }
 
-    /* ── Cierra todos ── */
+    /* Cierra todos */
     function closeAll() {
         if ($overlay) {
             $overlay.innerHTML = ''

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\UsuarioModel;
 use app\models\PacienteModel;
+use app\core\Validator;
 
 class AuthController extends Controller
 {
@@ -98,6 +99,12 @@ class AuthController extends Controller
 
         if ($contrasena !== $confirmar) {
             $_SESSION['flash_error'] = 'Las contraseñas no coinciden.';
+            $_SESSION['flash_old']   = $old;
+            $this->redirect('AuthController', 'showRegister');
+        }
+
+        if (!Validator::dniValido($dni)) {
+            $_SESSION['flash_error'] = 'El DNI/NIE introducido no es válido.';
             $_SESSION['flash_old']   = $old;
             $this->redirect('AuthController', 'showRegister');
         }

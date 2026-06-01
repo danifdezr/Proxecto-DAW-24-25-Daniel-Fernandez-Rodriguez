@@ -41,7 +41,7 @@ class CitaModel extends Model
                 INNER JOIN usuario  u ON p.id_usuario  = u.id_usuario";
     }
 
-    /* ── Consultas genéricas ──────────────────── */
+    //Consultas genéricas
 
     public static function getCitaById(int $id): ?CitaVo
     {
@@ -134,8 +134,11 @@ class CitaModel extends Model
                 return;
             }
 
-            $cursor  = null; // timestamp de cuándo el profesional queda libre
-            $updates = [];   // [id_cita => nueva_estimada | null]
+            // timestamp de cuándo el profesional queda libre
+            $cursor  = null; 
+
+            // [id_cita => nueva_estimada | null]
+            $updates = [];   
 
             foreach ($appointments as $apt) {
                 $tProg = strtotime($apt['fecha_hora_programada']);
@@ -240,7 +243,7 @@ class CitaModel extends Model
         return $ok;
     }
 
-    /* ── Consultas para el PACIENTE ──────────── */
+    // Consultas para el paciente
 
     public static function getProximaCitaPaciente(int $idPaciente): ?array
     {
@@ -352,7 +355,7 @@ class CitaModel extends Model
         return $citas;
     }
 
-    /* ── Consultas para el PROFESIONAL ────────── */
+    //Consultas para el profesional
 
     public static function getCitasByProfesionalHoy(int $idProfesional): array
     {
@@ -527,8 +530,6 @@ class CitaModel extends Model
 
         return $id;
     }
-
-    /* ── Métodos heredados (sin cambios) ─────── */
 
     public static function getCitas(): ?array
     {

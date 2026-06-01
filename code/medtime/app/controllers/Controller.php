@@ -18,6 +18,7 @@ class Controller
         }
     }
 
+    // Redirección
     protected function redirect(string $controller, string $action, array $params = []): never
     {
         $url = "/index.php?controller=$controller&action=$action";
@@ -28,6 +29,7 @@ class Controller
         exit;
     }
 
+    //Validar token
     protected function validateCsrfToken(): void
     {
         $submitted = $_POST['csrf_token'] ?? '';
@@ -40,6 +42,7 @@ class Controller
         }
     }
 
+    //Comprobación inicio sesión
     protected function requireAuth(): void
     {
         if (!isset($_SESSION['usuario'])) {
@@ -47,6 +50,7 @@ class Controller
         }
     }
 
+    //Usuario ya logueado intenta acceder a login o registro
     protected function requireGuest(): void
     {
         if (isset($_SESSION['usuario'])) {
@@ -54,6 +58,7 @@ class Controller
         }
     }
 
+    //Validación de los roles
     protected function requireRol(string ...$roles): void
     {
         if (!in_array($_SESSION['usuario']['rol'] ?? '', $roles, true)) {
@@ -61,6 +66,8 @@ class Controller
         }
     }
 
+    // Lectura mensaje error, éxito y datos antiguos del formulario guardados en sesión.
+    // Return como Array y cierra la sesión.
     protected function consumeFlash(): array
     {
         $data = [

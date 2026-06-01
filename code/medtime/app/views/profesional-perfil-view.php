@@ -13,7 +13,8 @@ $nombreCompleto = htmlspecialchars($u['nombre'] . ' ' . $u['apellidos']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
-  <link rel="stylesheet" href="/assets/css/profesional.css">
+  <link rel="stylesheet" href="/assets/css/cssPrincipal.css?v=<?= filemtime('/var/www/html/public/assets/css/cssPrincipal.css') ?>">
+  <link rel="stylesheet" href="/assets/css/profesional.css?v=<?= filemtime('/var/www/html/public/assets/css/profesional.css') ?>">
   <title>MedTime - Mi perfil</title>
 </head>
 <body>

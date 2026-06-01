@@ -16,8 +16,9 @@ $meses = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oc
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/paciente.css">
-  <link rel="stylesheet" href="/assets/css/modal.css">
+  <link rel="stylesheet" href="/assets/css/cssPrincipal.css?v=<?= filemtime('/var/www/html/public/assets/css/cssPrincipal.css') ?>">
+  <link rel="stylesheet" href="/assets/css/paciente.css?v=<?= filemtime('/var/www/html/public/assets/css/paciente.css') ?>">
+  <link rel="stylesheet" href="/assets/css/modal.css?v=<?= filemtime('/var/www/html/public/assets/css/modal.css') ?>">
   <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
   <title>MedTime - Mis citas</title>
 </head>
@@ -129,7 +130,20 @@ $meses = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oc
                       $esHoy          = $cita['fecha_cita'] === date('Y-m-d');
                       $confirmable    = !$esPasada && $cita['estado'] === 'PENDIENTE' && $esHoy;
                       $reprogramable  = !$esPasada && !in_array($cita['estado'], ['FINALIZADA', 'CANCELADA', 'EN_CONSULTA']);
+                      $fechaDetalle    = date('j', $tsRow) . ' ' . $meses[(int)date('n', $tsRow)] . '. ' . date('Y', $tsRow);
+                      $horaEstimada   = $cita['fecha_hora_estimada'] ? substr($cita['fecha_hora_estimada'], 11, 5) : '';
                     ?>
+                    <button class="btn-table" type="button"
+                            data-cita-detalle
+                            data-cita-prof="<?= htmlspecialchars($cita['profesional_nombre'] . ' ' . $cita['profesional_apellidos']) ?>"
+                            data-cita-espec="<?= htmlspecialchars($cita['especialidad']) ?>"
+                            data-cita-fecha="<?= htmlspecialchars($fechaDetalle) ?>"
+                            data-cita-hora="<?= htmlspecialchars(substr($cita['hora_cita'], 0, 5)) ?>"
+                            data-cita-hora-estimada="<?= htmlspecialchars($horaEstimada) ?>"
+                            data-cita-estado="<?= htmlspecialchars($cita['estado']) ?>"
+                            <?php if ($cita['observaciones']): ?>data-cita-obs="<?= htmlspecialchars($cita['observaciones']) ?>"<?php endif; ?>>
+                      Ver
+                    </button>
                     <?php if ($reprogramable): ?>
                       <a class="btn-table-edit"
                          href="/index.php?controller=PacienteController&action=mostrarReprogramar&id_cita=<?= (int)$cita['id_cita'] ?>">
@@ -151,7 +165,9 @@ $meses = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oc
                         <input type="hidden" name="id_cita" value="<?= (int)$cita['id_cita'] ?>">
                         <input type="hidden" name="from" value="citas">
                         <button class="btn-table-danger" type="button"
-                                onclick="if(window.confirm('¿Seguro que quieres cancelar esta cita?')) this.closest('form').submit()">
+                                data-confirm="¿Seguro que quieres cancelar esta cita?"
+                                data-confirm-label="Sí, cancelar"
+                                data-confirm-danger="true">
                           Cancelar
                         </button>
                       </form>

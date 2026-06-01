@@ -4,6 +4,7 @@ namespace app\controllers;
 
 class MainController extends Controller
 {
+    // Redirección (Rol/Usuario)
     public function listMain(): void
     {
         $this->requireAuth();

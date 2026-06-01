@@ -1,14 +1,14 @@
 const $d = document
 
-/* ── Muestra confirmación: modal si está disponible, native confirm como fallback ── */
+/* Muestra confirmación */
 function pedirConfirmacion(mensaje, confirmLabel, isDanger, onConfirm) {
     try {
         if (typeof Modal !== 'undefined' && typeof Modal.confirm === 'function') {
             Modal.confirm({
-                message:      mensaje,
+                message: mensaje,
                 confirmLabel: confirmLabel || 'Confirmar',
-                danger:       isDanger,
-                onConfirm:    onConfirm
+                danger: isDanger,
+                onConfirm: onConfirm
             })
         } else {
             if (window.confirm(mensaje)) onConfirm()
@@ -18,53 +18,54 @@ function pedirConfirmacion(mensaje, confirmLabel, isDanger, onConfirm) {
     }
 }
 
-/* ── Interceptar botones con data-confirm ── */
+/* Interceptar botones con data-confirm */
 function initConfirmButtons() {
-    $d.querySelectorAll('button[data-confirm]').forEach(function($btn) {
-        $btn.addEventListener('click', function(ev) {
+    $d.querySelectorAll('button[data-confirm]').forEach(function ($btn) {
+        $btn.addEventListener('click', function (ev) {
             ev.preventDefault()
 
-            var $form   = $btn.closest('form')
+            var $form = $btn.closest('form')
             var mensaje = $btn.dataset.confirm
-            var label   = $btn.dataset.confirmLabel  || 'Confirmar'
-            var danger  = $btn.dataset.confirmDanger === 'true'
+            var label = $btn.dataset.confirmLabel || 'Confirmar'
+            var danger = $btn.dataset.confirmDanger === 'true'
 
-            pedirConfirmacion(mensaje, label, danger, function() {
+            pedirConfirmacion(mensaje, label, danger, function () {
                 if ($form) HTMLFormElement.prototype.submit.call($form)
             })
         })
     })
 }
 
-/* ── Interceptar formularios con data-confirm en el form ── */
+/* Interceptar formularios con data-confirm en el form */
 function initFormConfirm() {
-    $d.querySelectorAll('form[data-confirm]').forEach(function($form) {
-        $form.addEventListener('submit', function(ev) {
+    $d.querySelectorAll('form[data-confirm]').forEach(function ($form) {
+        $form.addEventListener('submit', function (ev) {
             ev.preventDefault()
 
             var mensaje = $form.dataset.confirm
-            var label   = $form.dataset.confirmLabel || 'Confirmar'
-            var danger  = $form.dataset.confirmDanger === 'true'
+            var label = $form.dataset.confirmLabel || 'Confirmar'
+            var danger = $form.dataset.confirmDanger === 'true'
 
-            pedirConfirmacion(mensaje, label, danger, function() {
+            pedirConfirmacion(mensaje, label, danger, function () {
                 HTMLFormElement.prototype.submit.call($form)
             })
         })
     })
 }
 
-/* ── Modal de detalles de cita (data-cita-detalle) ── */
+/* Modal de detalles de cita (data-cita-detalle) */
+/* Emojis: https://es.piliapp.com/emoji/list/#tag*/
 function initDetailModals() {
-    $d.querySelectorAll('[data-cita-detalle]').forEach(function($el) {
+    $d.querySelectorAll('[data-cita-detalle]').forEach(function ($el) {
         $el.style.cursor = 'pointer'
-        $el.addEventListener('click', function() {
+        $el.addEventListener('click', function () {
             var d = $el.dataset
 
             var estadoLabels = {
-                PENDIENTE:   '🟡 Pendiente',
-                CONFIRMADA:  '🟢 Confirmada',
-                FINALIZADA:  '🔵 Finalizada',
-                CANCELADA:   '🔴 Cancelada',
+                PENDIENTE: '🟡 Pendiente',
+                CONFIRMADA: '🟢 Confirmada',
+                FINALIZADA: '🔵 Finalizada',
+                CANCELADA: '🔴 Cancelada',
                 EN_CONSULTA: '🟠 En consulta'
             }
             var estadoLabel = estadoLabels[d.citaEstado] || d.citaEstado
@@ -77,7 +78,7 @@ function initDetailModals() {
                 ? '<tr><th>Observaciones</th><td>' + (typeof Modal !== 'undefined' ? Modal._escape(d.citaObs) : d.citaObs) + '</td></tr>'
                 : ''
 
-            var e = typeof Modal !== 'undefined' ? Modal._escape.bind(Modal) : function(s) { return s }
+            var e = typeof Modal !== 'undefined' ? Modal._escape.bind(Modal) : function (s) { return s }
 
             var html = '<table class="modal-detail">' +
                 '<tr><th>Profesional</th><td>' + e(d.citaProf) + '</td></tr>' +

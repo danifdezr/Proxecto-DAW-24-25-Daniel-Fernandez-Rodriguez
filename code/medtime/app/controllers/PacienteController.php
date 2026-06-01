@@ -9,9 +9,7 @@ use app\models\UsuarioModel;
 
 class PacienteController extends Controller
 {
-    /* ════════════════════════════════════════
-       PANEL PRINCIPAL
-    ════════════════════════════════════════ */
+    // Panel principal
     public function panel(): void
     {
         $this->requireAuth();
@@ -63,9 +61,7 @@ class PacienteController extends Controller
         ]));
     }
 
-    /* ════════════════════════════════════════
-       LISTADO DE CITAS
-    ════════════════════════════════════════ */
+    //Listado de citas
     public function listCitas(): void
     {
         $this->requireAuth();
@@ -102,9 +98,7 @@ class PacienteController extends Controller
         ]));
     }
 
-    /* ════════════════════════════════════════
-       CONFIRMAR CITA (solo el día de la cita)
-    ════════════════════════════════════════ */
+    //Confirma cita (Únicamente el día de la cita)
     public function confirmarCita(): void
     {
         $this->requireAuth();
@@ -140,9 +134,7 @@ class PacienteController extends Controller
         $this->redirect('PacienteController', $from === 'citas' ? 'listCitas' : 'panel');
     }
 
-    /* ════════════════════════════════════════
-       CANCELAR CITA
-    ════════════════════════════════════════ */
+   // Cancelar cita
     public function cancelarCita(): void
     {
         $this->requireAuth();
@@ -173,9 +165,7 @@ class PacienteController extends Controller
         $this->redirect('PacienteController', $from === 'citas' ? 'listCitas' : 'panel');
     }
 
-    /* ════════════════════════════════════════
-       NUEVA CITA — BUSCAR PROFESIONAL
-    ════════════════════════════════════════ */
+    //Nueva cita
     public function nuevaCita(): void
     {
         $this->requireAuth();
@@ -191,9 +181,7 @@ class PacienteController extends Controller
         ]));
     }
 
-    /* ════════════════════════════════════════
-       NUEVA CITA — CALENDARIO DE DISPONIBILIDAD
-    ════════════════════════════════════════ */
+    //Nueva cita (Calendario de disponibilidad)
     public function disponibilidad(): void
     {
         $this->requireAuth();
@@ -219,7 +207,7 @@ class PacienteController extends Controller
             $fechaSeleccionada = null;
         }
 
-        // Generar calendario (próximos 35 días, alineado a semanas)
+        // Generar calendario (próximos 35 días)
         $hoy    = new \DateTime('today');
         $maxDt  = new \DateTime('+35 days');
         $semanas = $this->generarSemanas($hoy, $maxDt, $idProfesional, $duracion);
@@ -248,9 +236,7 @@ class PacienteController extends Controller
         ]);
     }
 
-    /* ════════════════════════════════════════
-       NUEVA CITA — GUARDAR
-    ════════════════════════════════════════ */
+    // Nueva cita - Guardar
     public function guardarCita(): void
     {
         $this->requireAuth();
@@ -318,12 +304,8 @@ class PacienteController extends Controller
         $this->redirect('PacienteController', 'panel');
     }
 
-    /* ════════════════════════════════════════
-       HELPERS PRIVADOS
-    ════════════════════════════════════════ */
-    /* ════════════════════════════════════════
-       REPROGRAMAR CITA
-    ════════════════════════════════════════ */
+    /* Helpers
+       Reprogramar cita*/
     public function mostrarReprogramar(): void
     {
         $this->requireAuth();
@@ -438,9 +420,7 @@ class PacienteController extends Controller
         $this->redirect('PacienteController', 'panel');
     }
 
-    /* ════════════════════════════════════════
-       PERFIL DEL PACIENTE
-    ════════════════════════════════════════ */
+    // Perfil del paciente ("Mi Perfil")
     public function perfil(): void
     {
         $this->requireAuth();
@@ -555,7 +535,8 @@ class PacienteController extends Controller
             return ['ini' => $ini, 'fin' => $ini + $duracionMin * 60];
         }, $citasExistentes);
 
-        $umbral = time() + 3600; // solo huecos con al menos 1 hora de antelación
+        // solo huecos con al menos 1 hora de antelación
+        $umbral = time() + 3600;
         $slots  = [];
 
         foreach ($horarios as $h) {

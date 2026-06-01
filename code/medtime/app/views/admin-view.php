@@ -11,8 +11,8 @@ $nombreCompleto = htmlspecialchars($usuario['nombre'] . ' ' . $usuario['apellido
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
-  <link rel="stylesheet" href="/assets/css/admin.css">
-  <link rel="stylesheet" href="/assets/css/modal.css">
+  <link rel="stylesheet" href="/assets/css/admin.css?v=<?= filemtime('/var/www/html/public/assets/css/admin.css') ?>">
+  <link rel="stylesheet" href="/assets/css/modal.css?v=<?= filemtime('/var/www/html/public/assets/css/modal.css') ?>">
   <title>MedTime — Administración</title>
 </head>
 <body>

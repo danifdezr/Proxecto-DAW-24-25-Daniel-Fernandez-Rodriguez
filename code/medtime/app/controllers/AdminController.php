@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\UsuarioModel;
 use app\models\ProfesionalModel;
+use app\models\PacienteModel;
+use app\core\Validator;
 
 class AdminController extends Controller
 {
@@ -14,7 +16,7 @@ class AdminController extends Controller
         $this->vista->showView('admin', $this->consumeFlash());
     }
 
-    /* ─────────────── API JSON ─────────────── */
+    /* API JSON  */
 
     public function getUsuarios(): void
     {
@@ -74,6 +76,19 @@ class AdminController extends Controller
             $this->json(false, null, 'Ya existe un usuario con ese email.');
         }
 
+        if ($rol === 'PACIENTE') {
+            $dni      = strtoupper(trim($_POST['dni'] ?? ''));
+            $fechaNac = trim($_POST['fecha_nacimiento'] ?? '');
+
+            if (!$dni || !$fechaNac) {
+                $this->json(false, null, 'El DNI y la fecha de nacimiento son obligatorios para pacientes.');
+            }
+
+            if (!Validator::dniValido($dni)) {
+                $this->json(false, null, 'El DNI/NIE introducido no es válido.');
+            }
+        }
+
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $id   = UsuarioModel::crearUsuario($nombre, $apellidos, $email, $telefono, $hash, $rol);
 
@@ -81,7 +96,11 @@ class AdminController extends Controller
             $this->json(false, null, 'Error al crear el usuario.');
         }
 
-        // Si es profesional, crear también el registro en la tabla profesional
+        if ($rol === 'PACIENTE') {
+            $numHistorial = 'HIST-' . str_pad((string)$id, 6, '0', STR_PAD_LEFT);
+            PacienteModel::crearPaciente($id, $dni, $fechaNac, $numHistorial);
+        }
+
         if ($rol === 'PROFESIONAL') {
             $especialidad = trim($_POST['especialidad']    ?? 'Sin especificar');
             $numColegiado = trim($_POST['num_colegiado']   ?? 'COL-' . str_pad((string)$id, 4, '0', STR_PAD_LEFT));
@@ -166,6 +185,12 @@ class AdminController extends Controller
             $this->json(false, null, 'No puedes eliminar tu propia cuenta.');
         }
 
+        $usuario = UsuarioModel::getUsuarioById($id);
+
+        if ($usuario && $usuario->getRol() === 'ADMIN' && UsuarioModel::countByRol('ADMIN') <= 1) {
+            $this->json(false, null, 'No se puede eliminar el único administrador del sistema.');
+        }
+
         $ok = UsuarioModel::eliminarUsuario($id);
 
         if (!$ok) {
@@ -175,7 +200,7 @@ class AdminController extends Controller
         $this->json(true, null);
     }
 
-    /* ─────────────── Helpers privados ─────────────── */
+    /* Helpers */
 
     private function json(bool $success, $data = null, string $error = ''): never
     {

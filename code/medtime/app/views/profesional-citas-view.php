@@ -20,7 +20,8 @@ function formatFecha(string $fecha, array $meses): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/profesional.css">
+  <link rel="stylesheet" href="/assets/css/cssPrincipal.css?v=<?= filemtime('/var/www/html/public/assets/css/cssPrincipal.css') ?>">
+  <link rel="stylesheet" href="/assets/css/profesional.css?v=<?= filemtime('/var/www/html/public/assets/css/profesional.css') ?>">
   <title>MedTime - Mis citas</title>
 </head>
 <body>

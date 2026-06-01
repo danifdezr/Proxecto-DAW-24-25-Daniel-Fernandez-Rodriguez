@@ -160,9 +160,7 @@ class ProfesionalController extends Controller
         $this->redirect('ProfesionalController', 'listProfesional');
     }
 
-    /* ════════════════════════════════════════
-       PERFIL DEL PROFESIONAL
-    ════════════════════════════════════════ */
+    // Perfil profesional
     public function perfil(): void
     {
         $this->requireAuth();

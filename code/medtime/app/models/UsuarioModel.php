@@ -185,6 +185,22 @@ class UsuarioModel extends Model
         return $ok;
     }
 
+    public static function countByRol(string $rol): int
+    {
+        try {
+            $db   = self::getConnection();
+            $stmt = $db->prepare("SELECT COUNT(*) FROM usuario WHERE rol = :rol");
+            $stmt->bindValue(':rol', $rol);
+            $stmt->execute();
+            return (int)$stmt->fetchColumn();
+        } catch (PDOException $th) {
+            error_log("Error: " . $th->getMessage());
+            return 0;
+        } finally {
+            $db = null;
+        }
+    }
+
     public static function eliminarUsuario(int $id): bool
     {
         $ok = false;

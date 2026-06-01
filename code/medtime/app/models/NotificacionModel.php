@@ -8,6 +8,9 @@ use PDOException;
 
 class NotificacionModel extends Model
 {
+
+    //TODO: Implementación de notificaciones
+    //Funciones básicas recoger notoficaciones
     public static function getNotificacionById(int $id): ?NotificacionVo
     {
         $sql = "SELECT id_notificacion, id_cita, tipo, mensaje, fecha_envio, estado

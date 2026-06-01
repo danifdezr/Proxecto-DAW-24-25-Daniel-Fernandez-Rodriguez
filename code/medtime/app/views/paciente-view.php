@@ -45,8 +45,9 @@ if ($proximaCita && $proximaCita['fecha_hora_estimada']) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/paciente.css">
-  <link rel="stylesheet" href="/assets/css/modal.css">
+  <link rel="stylesheet" href="/assets/css/cssPrincipal.css?v=<?= filemtime('/var/www/html/public/assets/css/cssPrincipal.css') ?>">
+  <link rel="stylesheet" href="/assets/css/paciente.css?v=<?= filemtime('/var/www/html/public/assets/css/paciente.css') ?>">
+  <link rel="stylesheet" href="/assets/css/modal.css?v=<?= filemtime('/var/www/html/public/assets/css/modal.css') ?>">
   <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
   <title>MedTime - Mi panel</title>
 </head>
@@ -219,7 +220,9 @@ if ($proximaCita && $proximaCita['fecha_hora_estimada']) {
                   <input type="hidden" name="id_cita" value="<?= (int)$proximaCita['id_cita'] ?>">
                   <input type="hidden" name="from" value="panel">
                   <button class="btn btn-danger" type="button"
-                          onclick="if(window.confirm('¿Seguro que quieres cancelar esta cita? Esta accion no se puede deshacer.')) this.closest('form').submit()">
+                          data-confirm="¿Seguro que quieres cancelar esta cita? Esta acción no se puede deshacer."
+                          data-confirm-label="Sí, cancelar"
+                          data-confirm-danger="true">
                     Cancelar cita
                   </button>
                 </form>

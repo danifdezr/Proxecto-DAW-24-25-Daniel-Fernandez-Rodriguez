@@ -22,8 +22,9 @@ $fechaHoyTexto = $diasSemana[(int)$hoy->format('w')] . ', ' . $hoy->format('j') 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/profesional.css">
-  <link rel="stylesheet" href="/assets/css/modal.css">
+  <link rel="stylesheet" href="/assets/css/cssPrincipal.css?v=<?= filemtime('/var/www/html/public/assets/css/cssPrincipal.css') ?>">
+  <link rel="stylesheet" href="/assets/css/profesional.css?v=<?= filemtime('/var/www/html/public/assets/css/profesional.css') ?>">
+  <link rel="stylesheet" href="/assets/css/modal.css?v=<?= filemtime('/var/www/html/public/assets/css/modal.css') ?>">
   <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
   <title>MedTime - Panel profesional</title>
 </head>
@@ -150,6 +151,9 @@ $fechaHoyTexto = $diasSemana[(int)$hoy->format('w')] . ', ' . $hoy->format('j') 
               $esFinalizada  = $cita['estado'] === 'FINALIZADA';
               $esLlamable    = in_array($cita['estado'], ['PENDIENTE', 'CONFIRMADA']) && $citaEnConsulta === null;
             ?>
+              <?php
+                $inicioReal = $cita['fecha_hora_real_inicio'] ? substr($cita['fecha_hora_real_inicio'], 11, 5) : '';
+              ?>
               <div class="cita-item <?= $estaActiva ? 'cita-item--activa' : '' ?> <?= $esFinalizada ? 'cita-item--done' : '' ?>" role="listitem">
 
                 <div class="cita-time">
@@ -159,7 +163,13 @@ $fechaHoyTexto = $diasSemana[(int)$hoy->format('w')] . ', ' . $hoy->format('j') 
                   <?php endif; ?>
                 </div>
 
-                <div class="cita-info">
+                <div class="cita-info"
+                     data-cita-detalle
+                     data-cita-paciente="<?= htmlspecialchars($cita['paciente_nombre'] . ' ' . $cita['paciente_apellidos']) ?>"
+                     data-cita-hora="<?= htmlspecialchars($horaP) ?>"
+                     data-cita-estado="<?= htmlspecialchars($cita['estado']) ?>"
+                     <?php if ($inicioReal): ?>data-cita-inicio="<?= htmlspecialchars($inicioReal) ?>"<?php endif; ?>
+                     <?php if ($cita['observaciones']): ?>data-cita-obs="<?= htmlspecialchars($cita['observaciones']) ?>"<?php endif; ?>>
                   <p class="cita-paciente">
                     <?= htmlspecialchars($cita['paciente_nombre'] . ' ' . $cita['paciente_apellidos']) ?>
                   </p>
